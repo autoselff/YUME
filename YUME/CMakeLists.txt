@@ -22,6 +22,10 @@ add_executable(${PROJECT_NAME}
 
     # engine
     src/main.cpp
+
+    src/engine/core/core.hpp
+    src/engine/math/math.hpp
+    src/engine/input/input.hpp
 )
 
 # Link OpenGL on UNIX
