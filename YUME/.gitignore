@@ -1,0 +1,14 @@
+# build directories
+build
+build-*
+out
+
+# IDE files
+.vs
+
+# API's
+glm
+glfw
+
+#temp
+deps
