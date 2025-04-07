@@ -1,21 +1,16 @@
 #ifndef YUME_CORE_HPP
 #define YUME_CORE_HPP
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
-#include <stb/stb_image.h>
-#include <iostream>
+#include "../config/config.h"
 
 void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 
 namespace yume {
-    unsigned int WINDOW_WIDTH{ 1280 };
+    unsigned int WINDOW_WIDTH{ 720 };
     unsigned int WINDOW_HEIGHT{ 720 };
+
+    float WINDOW_WIDTH_SCALE{};
+    float WINDOW_HEIGHT_SCALE{};
 
     GLFWwindow* _window;
 
@@ -27,8 +22,7 @@ namespace yume {
         WINDOW_HEIGHT = height;
     }
 
-    void init(const std::string& title) {
-        // WINDOW INITIALIZATION
+    void initWindow(const std::string& title) {
         if (!glfwInit()) {
             std::cerr << "Failed to initialize GLFW" << std::endl;
             return;
@@ -40,6 +34,9 @@ namespace yume {
         glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
 
         _window = glfwCreateWindow((int)WINDOW_WIDTH, (int)WINDOW_HEIGHT, title.c_str(), nullptr, nullptr);
+
+        WINDOW_WIDTH_SCALE = static_cast<float>(WINDOW_WIDTH) / 720;
+        WINDOW_HEIGHT_SCALE = static_cast<float>(WINDOW_HEIGHT) / 720;
 
         if (_window == nullptr) {
             std::cerr << "Failed to create GLFW window" << std::endl;
@@ -57,14 +54,15 @@ namespace yume {
             return;
         }
         else {
-            std::cout << "GLAD initialized correctly\n> yumegl2 0.0.1 <\n";
+            std::cout << "GLAD initialized correctly\n";
+            std::cout << "YUME 0.0.1 started\n";
         }
 
         glfwSwapInterval(1);
         std::cout << std::flush;
     }
 
-    void update() {
+    void updateWindow() {
         auto current_frame = static_cast<float>(glfwGetTime());
         delta_time = current_frame - last_frame;
         last_frame = current_frame;
@@ -91,14 +89,10 @@ namespace yume {
         glfwSetCursorPosCallback(_window, func);
     }
 
-    namespace eExit { // ENGINE'S PROCESS TERMINATION FUNCTIONS
-        void close() {
-            std::cout << "Opengl has been successfully closed" << std::endl;
+    void closeWindow() {
+        std::cout << "YUME has been successfully closed" << std::endl;
 
-            glfwTerminate();
-        }
-
-        // void delete...(...) { ... }
+        glfwTerminate();
     }
 }
 
