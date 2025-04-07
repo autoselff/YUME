@@ -10,7 +10,6 @@ if(WIN32)
 elseif(UNIX AND NOT APPLE)
     cmake_policy(SET CMP0072 NEW)
 
-    # sudo apt-get install libglfw3-dev
     find_package(OpenGL REQUIRED)
 
     add_subdirectory(glm)
