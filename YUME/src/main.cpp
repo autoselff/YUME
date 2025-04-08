@@ -11,6 +11,7 @@ int main() {
     while(yume::isWindowOpen()) {
         yume::updateWindow();
 
+
         if (yume::keyPressed(KEY_ESCAPE))
         {
             yume::setWindowStatus(false);

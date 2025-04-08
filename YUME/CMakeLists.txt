@@ -33,6 +33,15 @@ add_executable(${PROJECT_NAME}
 
     src/engine/renderer/renderer.h
     src/engine/renderer/renderer.cpp
+
+    src/engine/gl_program/shader.h
+
+    src/engine/gl_program/gl_program.h
+
+    src/engine/config/yume_default.h
+
+    src/engine/renderer/game_objects/square.h
+    src/engine/renderer/game_objects/square.cpp
 )
 
 # Link OpenGL on UNIX
