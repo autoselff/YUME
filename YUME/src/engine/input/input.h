@@ -6,7 +6,7 @@
 
 namespace yume {
 
-    void updateInput();
+    void updateInput(GLFWwindow* window);
 
     bool keyPressed(unsigned int keycode);
 

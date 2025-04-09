@@ -1,6 +1,6 @@
 ﻿#include "engine/core/window.h"
-#include "engine/input/input.h"
 #include "engine/config/config.h"
+#include "engine/input/input.h"
 
 int main() {
     yume::setWindowSize(1280, 720);
@@ -11,11 +11,9 @@ int main() {
     while(yume::isWindowOpen()) {
         yume::updateWindow();
 
-
-        if (yume::keyPressed(GLFW_KEY_ESCAPE))
-        {
-            yume::setWindowStatus(false);
-        }
+		if (yume::keyPressed(KEY_ESCAPE)) {
+			yume::setWindowStatus(false);
+		}
 
 		yume::updateInput(yume::getWindowPointer());
 

@@ -76,3 +76,18 @@ namespace yume {
         glfwSetWindowShouldClose(_window, !value);
     }
 
+    void swapBuffersPollEvents() {
+        glfwSwapBuffers(_window);
+        glfwPollEvents();
+    }
+
+    void setCursorPosCallback(GLFWcursorposfun func) {
+        glfwSetCursorPosCallback(_window, func);
+    }
+
+    void closeWindow() {
+        glfwDestroyWindow(_window);
+        glfwTerminate();
+    }
+}
+

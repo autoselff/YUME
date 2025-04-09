@@ -1,5 +1,4 @@
-#ifndef YUME_CONFIG_H
-#define YUME_CONFIG_H
+#pragma once
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -27,6 +26,4 @@
 #include <conio.h>
 #else
 #include <unistd.h>
-#endif
-
 #endif

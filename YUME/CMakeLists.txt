@@ -15,6 +15,7 @@ elseif(UNIX AND NOT APPLE)
     add_subdirectory(glm)
 endif()
 
+# Ling source and header files
 add_executable(${PROJECT_NAME}
     # dependencies
     src/deps/glad/glad.c
@@ -24,7 +25,7 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 
     src/engine/core/window.h
-    src/engine/core/window.h
+    src/engine/core/window.cpp
 
     src/engine/input/keycodes.h
     src/engine/input/input.h
