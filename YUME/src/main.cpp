@@ -12,12 +12,12 @@ int main() {
         yume::updateWindow();
 
 
-        if (yume::keyPressed(KEY_ESCAPE))
+        if (yume::keyPressed(GLFW_KEY_ESCAPE))
         {
             yume::setWindowStatus(false);
         }
 
-		yume::updateInput();
+		yume::updateInput(yume::getWindowPointer());
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

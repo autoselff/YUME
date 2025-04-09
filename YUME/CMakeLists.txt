@@ -24,24 +24,13 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 
     src/engine/core/window.h
+    src/engine/core/window.h
 
-    src/engine/math/math.h
-
+    src/engine/input/keycodes.h
     src/engine/input/input.h
+    src/engine/input/input.cpp
 
     src/engine/config/config.h
-
-    src/engine/renderer/renderer.h
-    src/engine/renderer/renderer.cpp
-
-    src/engine/gl_program/shader.h
-
-    src/engine/gl_program/gl_program.h
-
-    src/engine/config/yume_default.h
-
-    src/engine/renderer/game_objects/square.h
-    src/engine/renderer/game_objects/square.cpp
 )
 
 # Link OpenGL on UNIX
