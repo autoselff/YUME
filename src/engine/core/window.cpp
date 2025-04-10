@@ -86,6 +86,8 @@ namespace yume {
     }
 
     void closeWindow() {
+        std::cout << "\nclosing....\n\n";
+
         glfwDestroyWindow(_window);
         glfwTerminate();
     }

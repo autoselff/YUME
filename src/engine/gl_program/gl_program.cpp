@@ -100,13 +100,11 @@ void GlProgram::detachFShader(Shader* fragmentShader) {
         return;
     }
 
-    short i = shaders.size();
-
-    while (i >= countVShaders && fragmentShader != shaders[i]) {
+    int i = static_cast<int>(shaders.size()) - 1;
+    while (i >= static_cast<int>(countVShaders) && fragmentShader != shaders[i]) {
         i--;
     }
-
-    if (i == countVShaders - 1) {
+    if (i < static_cast<int>(countVShaders)) {
         std::cout << "WARNING: WRONG FSHADER DETACHMENT POINTER " << std::endl;
         return;
     }

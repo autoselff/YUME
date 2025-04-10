@@ -199,12 +199,29 @@ void Square::render_foregoingShader() const {
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
+void Square::rotate(glm::vec3 axis, float rotationSpeed) const {
+    auto transform = glm::mat4{ 1.0f };
+
+    transform = glm::translate(transform, position);
+    transform = glm::rotate(transform, rotationSpeed * (float)glfwGetTime(), axis);
+    transform = glm::translate(transform, -position);
+
+    shader.use();
+    shader.setMat4("transform", transform);
+}
+
+void Square::setRotation(glm::vec3 axis, float angle) const {
+    auto transform = glm::mat4{ 1.0f };
+
+    transform = glm::rotate(transform, glm::radians(angle), axis);
+    shader.use();
+    shader.setMat4("transform", transform);
+}
+
 Square::~Square() {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
-
-    shader.~GlProgram();
 
     std::cout << "Textures data successfully deleted" << std::endl;
 }

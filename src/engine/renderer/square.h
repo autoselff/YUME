@@ -37,4 +37,6 @@ public:
     void simpleRender();
     void bindTexture() const;
     void render_getShader(const GlProgram& other_shader) const;
+    void rotate(glm::vec3 axis, float rotationSpeed) const;
+    void setRotation(glm::vec3 axis, float angle) const;
 };

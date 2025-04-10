@@ -1,11 +1,6 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
-#include <filesystem>
-#include <fstream>
-#include <string>
+#include "../config/config.h"
 
 struct Shader {
 private:

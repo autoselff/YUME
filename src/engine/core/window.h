@@ -1,8 +1,6 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <string>
+#include "../config/config.h"
 
 void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 

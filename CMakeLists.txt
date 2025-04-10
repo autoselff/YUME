@@ -19,7 +19,9 @@ endif()
 add_executable(${PROJECT_NAME}
     # dependencies
     src/deps/glad/glad.c
+    src/deps/glad/glad.h
     src/deps/stb/stb.cpp
+    src/deps/stb/stb_image.h
 
     # engine
     src/main.cpp
@@ -42,6 +44,9 @@ add_executable(${PROJECT_NAME}
 
     src/engine/renderer/square.h
     src/engine/renderer/square.cpp
+
+    src/engine/renderer/triangle.h
+    src/engine/renderer/triangle.cpp
 )
 
 # Link OpenGL on UNIX

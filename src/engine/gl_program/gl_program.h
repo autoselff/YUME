@@ -1,12 +1,7 @@
 #pragma once
 
+#include "../config/config.h"
 #include "shader.h"
-
-#include <glad/glad.h>
-#include <glm/glm.hpp>
-#include <vector>
-#include <string>
-#include <iostream>
 
 class GlProgram {
 private:

@@ -1,7 +1,6 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "../config/config.h"
 #include "keycodes.h"
 
 namespace yume {
