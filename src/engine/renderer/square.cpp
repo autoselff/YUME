@@ -112,7 +112,6 @@ Square::Square(const std::string& path, glm::vec3 position_value, glm::vec2 size
         std::cerr << "An error occurred during initialization: " << e.what();
     }
 
-    std::cout << "Checking panic mode...\n";
     std::cout << "The object has been successfully initialized\n";
 }
 
