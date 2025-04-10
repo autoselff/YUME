@@ -1,5 +1,9 @@
 #include "gl_program.h"
 
+GlProgram::GlProgram() : id(glCreateProgram()) {
+    std::cout << "program nr.: " << id << " has been created." << std::endl;
+};
+
 GlProgram::GlProgram(Shader* vertexShader, Shader* fragmentShader) : id(glCreateProgram()) {
 
     std::cout << "program nr.: " << id << " has been created." << std::endl;
@@ -49,7 +53,6 @@ Shader* GlProgram::fShaderPointer(size_t index) const {
     return shaders[index];
 }
 
-
 void GlProgram::attachVShader(Shader* vertexShader) {
     if (vertexShader->sType() != GL_VERTEX_SHADER) {
         std::cout << "ERROR: INCORRECT ARGUMENT FOR attachVShader " << std::endl;
@@ -70,7 +73,6 @@ void GlProgram::attachFShader(Shader* fragmentShader) {
     shaders.push_back(fragmentShader);
     glAttachShader(id, fragmentShader->getId());
 }
-
 
 void GlProgram::detachVShader(Shader* vertexShader) {
     if (vertexShader->sType() != GL_VERTEX_SHADER) {
@@ -112,7 +114,6 @@ void GlProgram::detachFShader(Shader* fragmentShader) {
     detachFShader(i);
 }
 
-
 void GlProgram::detachVShader(size_t index) {
     if (index < 0 || index >= countVShaders) {
         std::cout << "WARNING: WRONG VSHADER DETACHMENT INDEX " << std::endl;
@@ -151,14 +152,12 @@ GLint GlProgram::getUniformLocation(const std::string& name) {
     return glGetUniformLocation(id, name.c_str());
 }
 
-
 void GlProgram::setBool(const std::string& name, bool value) const {
     glUniform1i(glGetUniformLocation(id, name.c_str()), (int)value);
 }
 void GlProgram::setBool(GLint location, bool value) const {
     glUniform1i(location, (int)value);
 }
-
 
 void GlProgram::setInt(const std::string& name, int value) const {
     glUniform1i(glGetUniformLocation(id, name.c_str()), value);
@@ -167,14 +166,12 @@ void GlProgram::setInt(GLint location, int value) const {
     glUniform1i(location, value);
 }
 
-
 void GlProgram::setFloat(const std::string& name, float value) const {
     glUniform1f(glGetUniformLocation(id, name.c_str()), value);
 }
 void GlProgram::setFloat(GLint location, float value) const {
     glUniform1f(location, value);
 }
-
 
 void GlProgram::setVec2(const std::string& name, const glm::vec2& value) const {
     glUniform2fv(glGetUniformLocation(id, name.c_str()), 1, &value[0]);
@@ -190,7 +187,6 @@ void GlProgram::setVec2(GLint location, float x, float y) const {
     glUniform2f(location, x, y);
 }
 
-
 void GlProgram::setVec3(const std::string& name, const glm::vec3& value) const {
     glUniform3fv(glGetUniformLocation(id, name.c_str()), 1, &value[0]);
 }
@@ -205,7 +201,6 @@ void GlProgram::setVec3(GLint location, float x, float y, float z) const {
     glUniform3f(location, x, y, z);
 }
 
-
 void GlProgram::setVec4(const std::string& name, const glm::vec4& value) const {
     glUniform4fv(glGetUniformLocation(id, name.c_str()), 1, &value[0]);
 }
@@ -219,7 +214,6 @@ void GlProgram::setVec4(GLint location, const glm::vec4& value) const {
 void GlProgram::setVec4(GLint location, float x, float y, float z, float w) const {
     glUniform4f(location, x, y, z, w);
 }
-
 
 void GlProgram::setMat2(const std::string& name, const glm::mat2& mat) const {
     glUniformMatrix2fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, &mat[0][0]);
@@ -254,6 +248,9 @@ void GlProgram::checkLinkingErrors() {
 	if (!success) {
 		glGetProgramInfoLog(id, 512, nullptr, infoLog);
 		std::cout << "ERROR: PROGRAM LINKING FAILURE\n" << infoLog << std::endl;
+	}
+	else {
+		std::cout << "PROGRAM LINKING SUCCESS" << std::endl;
 	}
 }
 

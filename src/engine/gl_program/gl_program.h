@@ -15,6 +15,8 @@ private:
     std::vector<Shader*> shaders;
 
 public:
+    GlProgram();
+
     GlProgram(Shader* vertexShader, Shader* fragmentShader);
     ~GlProgram();
 
