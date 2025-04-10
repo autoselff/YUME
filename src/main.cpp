@@ -1,6 +1,5 @@
-﻿#include "engine/core/window.h"
-#include "engine/config/config.h"
-#include "engine/input/input.h"
+﻿#include "engine/config/config.h"
+#include "engine/config/essentials.h"
 
 int main() {
     yume::setWindowSize(1280, 720);

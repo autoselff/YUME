@@ -32,6 +32,12 @@ add_executable(${PROJECT_NAME}
     src/engine/input/input.cpp
 
     src/engine/config/config.h
+
+    src/engine/gl_program/shader.h
+    src/engine/gl_program/shader.cpp
+    src/engine/gl_program/gl_program.h
+    src/engine/gl_program/gl_program.cpp
+    src/engine/config/essentials.h
 )
 
 # Link OpenGL on UNIX
