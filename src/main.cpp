@@ -6,8 +6,8 @@ int main() {
     yume::initWindow("YUME");
 
     TexSquare* cat{ nullptr };
-    cat = new TexSquare("C:/Users/mydat/Documents/YUME/res/cat.png", {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
-    cat->shader.makeProgramFromPaths("../res/vertex.glsl", "../res/fragment.glsl");
+    cat = new TexSquare("C:/Users/mydat/Documents/YUME/res/texture/cat.png", {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
+    cat->shader.makeProgramFromPaths("../res/shaders/texsquare/vertex.glsl", "../res/shaders/texsquare/fragment.glsl");
     cat->setRotation({ 0.0f, 0.0f, 1.0f}, 0.0f);
 
 
