@@ -1,14 +1,17 @@
 ﻿#include "engine/config/config.h"
 #include "engine/config/essentials.h"
+#include "engine/config/data.h"
 
 int main() {
     yume::setWindowSize(720, 720);
     yume::initWindow("YUME");
 
     TexSquare* cat{ nullptr };
-    cat = new TexSquare("C:/Users/mydat/Documents/YUME/res/cat.png", {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
-    cat->shader.makeProgramFromPaths("C:/Users/mydat/Documents/YUME/res/vertex.glsl", "C:/Users/mydat/Documents/YUME/res/fragment.glsl");
-    cat->setRotation({ 0.0f, 0.0f, 1.0f}, 0.0f);
+    cat = new TexSquare(CAT, {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
+    cat->shader.makeProgramFromPaths(VERTEX_SHADER, FRAGMENT_SHADER);
+    cat->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
+
+    float i = 0.0f;
 
     glEnable(GL_DEPTH_TEST);
 
@@ -20,6 +23,7 @@ int main() {
 		}
 
 		yume::updateInput(yume::getWindowPointer());
+		cat->rotate({ 1.0f, 0.0f, 0.0f }, 1.0f);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

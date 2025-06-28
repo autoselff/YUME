@@ -106,7 +106,7 @@ void TexSquare::renderWithShader(const GlProgram& otherShader) const {
 void TexSquare::rotate(const glm::vec3& axis, float rotationSpeed) const {
     glm::mat4 transform(1.0f);
     transform = glm::translate(transform, position);
-    transform = glm::rotate(transform, rotationSpeed * (float)glfwGetTime(), axis);
+    transform = glm::rotate(transform, -rotationSpeed * (float)glfwGetTime(), axis);
     transform = glm::translate(transform, -position);
 
     shader.use();
@@ -114,7 +114,7 @@ void TexSquare::rotate(const glm::vec3& axis, float rotationSpeed) const {
 }
 
 void TexSquare::setRotation(const glm::vec3& axis, float angle) const {
-    glm::mat4 transform = glm::rotate(glm::mat4(1.0f), glm::radians(angle), axis);
+    glm::mat4 transform = glm::rotate(glm::mat4(1.0f), glm::radians(-angle), axis);
     shader.use();
     shader.setMat4("transform", transform);
 }
