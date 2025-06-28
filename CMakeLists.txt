@@ -47,6 +47,9 @@ add_executable(${PROJECT_NAME}
 
     src/engine/renderer/triangle.h
     src/engine/renderer/triangle.cpp
+
+    src/engine/renderer/texsquare.h
+    src/engine/renderer/texsquare.cpp
 )
 
 # Link OpenGL on UNIX

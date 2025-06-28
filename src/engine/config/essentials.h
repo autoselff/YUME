@@ -5,3 +5,4 @@
 #include "../engine/gl_program/gl_program.h"
 #include "../engine/renderer/square.h"
 #include "../engine/renderer/triangle.h"
+#include "../engine/renderer/texsquare.h"

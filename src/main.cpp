@@ -5,10 +5,11 @@ int main() {
     yume::setWindowSize(720, 720);
     yume::initWindow("YUME");
 
-	Triangle* triangle = new Triangle({ 0.2f, 0.0f, 1.0f }, { 0.3f, 0.3f });
+    TexSquare* cat{ nullptr };
+    cat = new TexSquare("C:/Users/mydat/Documents/YUME/res/cat.png", {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
+    cat->shader.makeProgramFromPaths("../res/vertex.glsl", "../res/fragment.glsl");
+    cat->setRotation({ 0.0f, 0.0f, 1.0f}, 0.0f);
 
-    GlProgram gl_program;
-	gl_program.makeProgramFromPaths("../res/vertex.glsl", "../res/fragment.glsl");
 
     glEnable(GL_DEPTH_TEST);
 
@@ -25,11 +26,14 @@ int main() {
 
         glClearColor(0.4f, 0.2f, 0.3f, 1.0f);
 
-		triangle->simpleRender();
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        cat->simpleRender();
 
         yume::swapBuffersPollEvents();
     }
 
+	delete cat;
+
     yume::closeWindow();
-    delete triangle;
 }

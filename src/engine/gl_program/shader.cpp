@@ -75,8 +75,7 @@ void Shader::checkCompileErrors() {
 }
 
 Shader::~Shader() {
-    std::cout << sTypeStr() << " shader nr.: " << id << " has been deleted." << std::endl;
-    glDeleteShader(id);
+    std::cout << sTypeStr() << " shader nr.: " << id << " has been deleted. (updated version)" << std::endl;
 }
 
 Shader generateShaderPath(GLenum sType, const std::string& path) {

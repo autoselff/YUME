@@ -26,15 +26,22 @@ GlProgram::GlProgram(Shader* vertexShader, Shader* fragmentShader) : id(glCreate
 ///Mainly for simple useage.
 /// </summary>
 void GlProgram::makeProgramFromPaths(const std::string& vertexPath, const std::string& fragmentPath) {
-
     Shader vertexShader = generateShaderPath(GL_VERTEX_SHADER, vertexPath);
     Shader fragmentShader = generateShaderPath(GL_FRAGMENT_SHADER, fragmentPath);
 
     glAttachShader(id, vertexShader.getId());
     glAttachShader(id, fragmentShader.getId());
 
-    linkProgram();
+    glLinkProgram(id);
+    checkLinkingErrors();
+
+    glDeleteShader(vertexShader.getId());
+    glDeleteShader(fragmentShader.getId());
+
+    GLint loc = glGetUniformLocation(id, "uTexture");
+    std::cerr << "[DEBUG] uTexture location after link: " << loc << "\n";
 }
+
 
 Shader* GlProgram::vShaderPointer(size_t index) const {
     if (index < 0 || index >= countVShaders) {
