@@ -35,7 +35,6 @@ add_executable(${PROJECT_NAME}
 
     src/engine/config/config.h
     src/engine/config/essentials.h
-    src/engine/config/data.h
 
     src/engine/gl_program/shader.h
     src/engine/gl_program/shader.cpp
