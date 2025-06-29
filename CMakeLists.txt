@@ -15,7 +15,6 @@ elseif(UNIX AND NOT APPLE)
     add_subdirectory(glm)
 endif()
 
-# Ling source and header files
 add_executable(${PROJECT_NAME}
     # dependencies
     src/deps/glad/glad.c
@@ -23,7 +22,7 @@ add_executable(${PROJECT_NAME}
     src/deps/stb/stb.cpp
     src/deps/stb/stb_image.h
 
-    # engine
+    #engine
     src/main.cpp
 
     src/engine/core/window.h
@@ -52,7 +51,6 @@ add_executable(${PROJECT_NAME}
     src/engine/renderer/texsquare.cpp
 )
 
-# Link OpenGL on UNIX
 if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE glfw glm OpenGL::GL)
 else()
