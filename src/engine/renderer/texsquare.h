@@ -1,5 +1,4 @@
-#ifndef TEX_SQUARE_H
-#define TEX_SQUARE_H
+#pragma once
 
 #include "../config/config.h"
 #include "../gl_program/gl_program.h"
@@ -36,5 +35,3 @@ private:
     void loadTexture(const std::string& path);
     void initBuffers();
 };
-
-#endif // TEX_SQUARE_H
