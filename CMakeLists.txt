@@ -76,7 +76,7 @@ add_custom_command(
     TARGET ${PROJECT_NAME}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${RES_SOURCE_DIR}"             # Źródłowy folder res
-        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res" # Docelowy folder res w katalogu binarnym
+        "${RES_SOURCE_DIR}"
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res"
     COMMENT "Kopiowanie folderu 'res' z zasobami do katalogu binarnych..."
 )
