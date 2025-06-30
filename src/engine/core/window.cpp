@@ -55,7 +55,7 @@ namespace yume {
         }
 
         glfwSwapInterval(1);
-        std::cout << std::flush;
+        std::cout << std::endl << std::flush;
     }
 
     void updateWindow() {
