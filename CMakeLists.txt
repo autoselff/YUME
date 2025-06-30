@@ -49,6 +49,9 @@ add_executable(${PROJECT_NAME}
 
     src/engine/renderer/texsquare.h
     src/engine/renderer/texsquare.cpp
+
+    src/engine/core/assistant.h
+    src/engine/core/assistant.cpp
 )
 
 if(UNIX AND NOT APPLE)
@@ -58,3 +61,22 @@ else()
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE src/deps)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/build/$<CONFIG>"
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/out/build/debug"
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/out/build/release"
+    RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/out/build/minsizerel"
+    RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/out/build/relwithdebinfo"
+)
+
+set(RES_SOURCE_DIR "${CMAKE_SOURCE_DIR}/res")
+
+add_custom_command(
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${RES_SOURCE_DIR}"             # Źródłowy folder res
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res" # Docelowy folder res w katalogu binarnym
+    COMMENT "Kopiowanie folderu 'res' z zasobami do katalogu binarnych..."
+)

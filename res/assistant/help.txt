@@ -1,0 +1,1 @@
+export - python -m PyInstaller src/assistant.py --onefile --distpath C:\Tools

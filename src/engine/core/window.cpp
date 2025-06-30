@@ -10,8 +10,8 @@ namespace yume {
 
     GLFWwindow* _window{ nullptr };
 
-    float delta_time{};
     float last_frame{};
+    float delta_time{};
 
     void setWindowSize(unsigned int width, unsigned int height) {
         WINDOW_WIDTH = width;
@@ -74,6 +74,10 @@ namespace yume {
 
     GLFWwindow* getWindowPointer() {
         return _window;
+    }
+
+    float getDeltaTime() {
+        return delta_time;
     }
 
     bool isWindowOpen() {

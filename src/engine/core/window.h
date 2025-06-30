@@ -14,6 +14,8 @@ namespace yume {
 
     GLFWwindow* getWindowPointer();
 
+    float getDeltaTime();
+
     bool isWindowOpen();
 
     void setWindowStatus(bool value);
