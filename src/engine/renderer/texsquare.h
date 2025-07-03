@@ -2,6 +2,7 @@
 
 #include "../config/config.h"
 #include "../gl_program/gl_program.h"
+#include "../core/window.h"
 
 class TexSquare {
 public:

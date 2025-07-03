@@ -16,6 +16,8 @@ namespace yume {
 
     float getDeltaTime();
 
+    glm::vec2 getGlobalScale();
+
     bool isWindowOpen();
 
     void setWindowStatus(bool value);

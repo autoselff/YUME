@@ -80,6 +80,10 @@ namespace yume {
         return delta_time;
     }
 
+    glm::vec2 getGlobalScale() {
+        return {WINDOW_HEIGHT_SCALE, WINDOW_WIDTH_SCALE};
+    }
+
     bool isWindowOpen() {
         return !glfwWindowShouldClose(_window);
     }

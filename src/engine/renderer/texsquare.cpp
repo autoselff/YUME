@@ -54,6 +54,9 @@ void TexSquare::initBuffers() {
 }
 
 void TexSquare::updateVertices() {
+    size.x = size.x * yume::getGlobalScale().x;
+    size.y = size.y * yume::getGlobalScale().y;
+
     vertices = {
         // pos                            // color               // tex
         position.x + size.x, position.y + size.y, position.z, color.r, color.g, color.b, 1.0f, 1.0f, // top-right
