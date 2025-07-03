@@ -2,7 +2,6 @@
 #include "engine/config/essentials.h"
 
 int main() {
-    yume::setWindowSize(1280, 720);
     yume::initWindow("YUME");
     yume::runAssistant();
 

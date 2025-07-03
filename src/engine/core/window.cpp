@@ -2,8 +2,8 @@
 #include <iostream>
 
 namespace yume {
-    unsigned int WINDOW_WIDTH{ 720 };
-    unsigned int WINDOW_HEIGHT{ 720 };
+    unsigned int WINDOW_WIDTH{ 1024 };
+    unsigned int WINDOW_HEIGHT{ 768 };
 
     float WINDOW_WIDTH_SCALE{};
     float WINDOW_HEIGHT_SCALE{};
