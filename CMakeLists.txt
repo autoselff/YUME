@@ -8,6 +8,9 @@ if(WIN32)
     add_subdirectory(glm)
 
 elseif(UNIX AND NOT APPLE)
+    # sudo apt-get install libglm-dev
+    # sudo apt-get install libglfw3 libglfw3-dev
+
     cmake_policy(SET CMP0072 NEW)
 
     find_package(OpenGL REQUIRED)

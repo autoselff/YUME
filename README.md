@@ -1,3 +1,1 @@
-# YUME
-
-Libraries: https://drive.google.com/drive/folders/1sia8GdaQtF6IfAa7QOfRG_ASMAHdXo2_?hl=pl
+## For more information and to download the required libraries easily, I recommend visiting my website: autoselff.com
