@@ -1,7 +1,7 @@
 .PHONY: run clean
 
 run:
-	py src/assistant.py
+	python3 src/assistant.py
 
 clean:
 	@echo "Nothing to clean."
