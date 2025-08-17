@@ -6,7 +6,7 @@ int main() {
     yume::runAssistant();
 
     TexSquare* cat{ nullptr };
-    cat = new TexSquare("res/textures/cat-bg.png", {0.0f, 0.0f, 0.0f}, { 0.0, 0.0, 0.0 }, {0.5f, 0.5f});
+    cat = new TexSquare("res/textures/cat-bg.png", {0.0f, 0.0f, 0.0f}, { 1.0, 1.0, 1.0 }, {0.5f, 0.5f});
     cat->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
     cat->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
 
