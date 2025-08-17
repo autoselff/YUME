@@ -22,7 +22,7 @@ int main() {
 		yume::updateInput(yume::getWindowPointer());
         glClearColor(0.4f, 0.2f, 0.3f, 1.0f);
         
-        cat->rotate({ 0.0f, 1.0f, 0.0f }, 2.8f);
+        cat->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
         cat->simpleRender();
 
         yume::swapBuffersPollEvents();
