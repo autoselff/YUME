@@ -10,7 +10,7 @@ The latest version of YUME is **0.0.2**, which introduces:
 - Easy window mode switching
 - Scaling of objects such as `TexSquare` to ensure that textures do not lose their scale and properties regardless of the resolution.
 
-I invite you to help with the development of the final engine for 2D games, and I hope to see you soon!
+I invite you to help with the development of the ultimate engine for 2D games, 
 
 ---
 
