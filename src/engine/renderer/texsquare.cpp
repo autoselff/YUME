@@ -54,15 +54,26 @@ void TexSquare::initBuffers() {
 }
 
 void TexSquare::updateVertices() {
-    size.x = size.x * yume::getGlobalScale().x;
-    size.y = size.y * yume::getGlobalScale().y;
-
     vertices = {
-        // pos                            // color               // tex
-        position.x + size.x, position.y + size.y, position.z, color.r, color.g, color.b, 1.0f, 1.0f, // top-right
-        position.x + size.x, position.y - size.y, position.z, color.r, color.g, color.b, 1.0f, 0.0f, // bottom-right
-        position.x - size.x, position.y - size.y, position.z, color.r, color.g, color.b, 0.0f, 0.0f, // bottom-left
-        position.x - size.x, position.y + size.y, position.z, color.r, color.g, color.b, 0.0f, 1.0f  // top-left
+        // top-right
+        position.x + size.x * yume::getGlobalScale().x, 
+        position.y + size.y * yume::getGlobalScale().y, 
+        position.z, color.r, color.g, color.b, 1.0f, 1.0f,
+
+        // bottom-right
+        position.x + size.x * yume::getGlobalScale().x, 
+        position.y - size.y * yume::getGlobalScale().y, 
+        position.z, color.r, color.g, color.b, 1.0f, 0.0f,
+
+        // bottom-left
+        position.x - size.x * yume::getGlobalScale().x, 
+        position.y - size.y * yume::getGlobalScale().y, 
+        position.z, color.r, color.g, color.b, 0.0f, 0.0f,
+
+        // top-left
+        position.x - size.x * yume::getGlobalScale().x, 
+        position.y + size.y * yume::getGlobalScale().y, 
+        position.z, color.r, color.g, color.b, 0.0f, 1.0f
     };
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);

@@ -2,13 +2,16 @@
 #include <iostream>
 
 namespace yume {
-    unsigned int WINDOW_WIDTH{ 1024 };
-    unsigned int WINDOW_HEIGHT{ 768 };
+    unsigned int WINDOW_WIDTH{ 800 };
+    unsigned int WINDOW_HEIGHT{ 600 };
 
     float WINDOW_WIDTH_SCALE{};
     float WINDOW_HEIGHT_SCALE{};
 
     GLFWwindow* _window{ nullptr };
+    GLFWmonitor* monitor{ nullptr };
+
+    bool FULLSCREEN{ false };
 
     float last_frame{};
     float delta_time{};
@@ -28,11 +31,15 @@ namespace yume {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+
+        monitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 
         _window = glfwCreateWindow((int)WINDOW_WIDTH, (int)WINDOW_HEIGHT, title.c_str(), nullptr, nullptr);
 
-        WINDOW_WIDTH_SCALE = static_cast<float>(WINDOW_WIDTH) / 720;
-        WINDOW_HEIGHT_SCALE = static_cast<float>(WINDOW_HEIGHT) / 720;
+        WINDOW_WIDTH_SCALE = static_cast<float>(WINDOW_WIDTH) / 600;
+        WINDOW_HEIGHT_SCALE = static_cast<float>(WINDOW_HEIGHT) / 600;
 
         if (_window == nullptr) {
             std::cerr << "Failed to create GLFW window" << std::endl;
@@ -70,6 +77,22 @@ namespace yume {
         // ALPHA
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    }
+
+    void toggleFullscreen() {
+        static int w_x, w_y, w_width, w_height;
+
+        if (!FULLSCREEN) {
+            glfwGetWindowPos(_window, &w_x, &w_y);
+            glfwGetWindowSize(_window, &w_width, &w_height);
+
+            const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+            glfwSetWindowMonitor(_window, monitor, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
+        } else {
+            glfwSetWindowMonitor(_window, nullptr, w_x, w_y, w_width, w_height, 0);
+        }
+
+        FULLSCREEN = !FULLSCREEN;
     }
 
     GLFWwindow* getWindowPointer() {

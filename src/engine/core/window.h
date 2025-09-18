@@ -12,6 +12,8 @@ namespace yume {
 
     void updateWindow();
 
+    void toggleFullscreen();
+
     GLFWwindow* getWindowPointer();
 
     float getDeltaTime();

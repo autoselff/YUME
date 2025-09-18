@@ -18,6 +18,9 @@ int main() {
 		if (yume::keyPressed(KEY_ESCAPE)) {
 			yume::setWindowStatus(false);
 		}
+        if (yume::keyPressed(KEY_F)) {
+            yume::toggleFullscreen();
+        }
 
 		yume::updateInput(yume::getWindowPointer());
         glClearColor(0.4f, 0.2f, 0.3f, 1.0f);
