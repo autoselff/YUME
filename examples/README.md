@@ -44,3 +44,4 @@ int main() {
 }
 
 ```
+<img width="806" height="628" alt="Screenshot_2025-09-18_13-07-42" src="https://github.com/user-attachments/assets/2ef036f7-2335-44aa-ba13-d30bc7b2a608" />
