@@ -1,6 +1,7 @@
 import os
 
-proj_dir = '/home/autoself/Documents/GitHub/YUME'  # PROJECT PATH
+current_dir = os.path.dirname(os.path.abspath(__file__))
+proj_dir = os.path.abspath(os.path.join(current_dir, '../../../../../'))
 
 def count_project_lines(path):
     INCLUDED_FORMATS = ('.txt', '.cpp', '.h', '.py')
@@ -35,8 +36,11 @@ def count_project_lines(path):
 if __name__ == "__main__":
     print("The YUME Assistant is a built-in helper whose task is to make many tedious things easier and faster.")
 
+    print(f'[assistant] current direction - {current_dir}')
+    print(f'[assistant] project direction - {proj_dir}')
+
     if not os.path.exists(proj_dir):
         print(f"Directory {proj_dir} does not exist.")
     else:
-        print("scanning dir: ", proj_dir)
+        print("Scanning dir: ", proj_dir)
         print(f"Counting complete. Grand total: {count_project_lines(proj_dir)} lines.")
