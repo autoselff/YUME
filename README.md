@@ -25,9 +25,6 @@ YUME<br>
 │   ├── main.cpp<br>
 │   ├── engine<br>
 │   └── deps<br>
-│       ├── stb<br>
-│       ├── KHR<br>
-│       └── glad<br>
 ├── res<br>
 ├── glm<br>
 └── glfw<br>
