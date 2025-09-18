@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required(VERSION 3.28)
-project(YUME)
+project(YUME VERSION 0.0.2)
 
 set(CMAKE_CXX_STANDARD 20)
 
