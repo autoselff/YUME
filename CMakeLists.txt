@@ -44,6 +44,8 @@ add_executable(${PROJECT_NAME}
     src/engine/gl_program/gl_program.h
     src/engine/gl_program/gl_program.cpp
 
+    src/engine/renderer/colors.h
+    
     src/engine/renderer/square.h
     src/engine/renderer/square.cpp
 

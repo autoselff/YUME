@@ -24,6 +24,8 @@ namespace yume {
 
     void setWindowStatus(bool value);
 
+    void setWindowBackgroundColor(glm::vec3 color);
+
     void swapBuffersPollEvents();
 
     void setCursorPosCallback(GLFWcursorposfun func);

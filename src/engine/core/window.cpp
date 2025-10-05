@@ -115,6 +115,10 @@ namespace yume {
         glfwSetWindowShouldClose(_window, !value);
     }
 
+    void setWindowBackgroundColor(glm::vec3 color) {
+        glClearColor(color.x, color.y, color.z, 1.0f);
+    }
+
     void swapBuffersPollEvents() {
         glfwSwapBuffers(_window);
         glfwPollEvents();

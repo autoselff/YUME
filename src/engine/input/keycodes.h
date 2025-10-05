@@ -1,3 +1,5 @@
+#pragma once
+
 #define KEY_SPACE              32
 #define KEY_APOSTROPHE         39  /* ' */
 #define KEY_COMMA              44  /* , */
