@@ -2,13 +2,14 @@
 
 #include "../config/config.h"
 #include "../node_packages/node_pcg.h"
+#include "../renderer/texsquare.h"
 
 class Node {
-private:
-
 public:
-    std::vector<NodePackage> packages {};
+	glm::vec3 position{ 0.0f };
 
-	Node(std::vector<NodePackage> node_packages);
+	TexSquare* texsquare{ nullptr };
+
+	Node(const glm::vec3& position);
 	~Node();
 };

@@ -2,5 +2,4 @@
 
 #include "../config/config.h"
 
-class NodePackage {
-};
+class NodePackage {};

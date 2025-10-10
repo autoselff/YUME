@@ -5,7 +5,7 @@
 #include "../node_packages/node_pcg.h"
 #include "../core/window.h"
 
-class TexSquare : NodePackage {
+class TexSquare {
 public:
     glm::vec3 position{ 0.0f };
     glm::vec3 color{ 0.0f };

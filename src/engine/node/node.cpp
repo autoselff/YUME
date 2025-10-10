@@ -1,9 +1,11 @@
 #include "node.h"
 
-Node::Node(std::vector<NodePackage> node_packages) {
-    packages = node_packages;
+Node::Node(const glm::vec3& position)
+    : position(position)
+{
+
 }
 
 Node::~Node() {
-
+    delete texsquare;
 }

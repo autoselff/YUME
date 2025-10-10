@@ -2,19 +2,17 @@
 #include "engine/config/essentials.h"
 
 
-void handle_movement(TexSquare* cat, float speed);
+void handle_movement(TexSquare* obj, float speed);
 
 int main() {
     yume::initWindow("YUME");
     yume::runAssistant();
 
-    Node* my_node{ nullptr };
-    my_node = new Node({});
+    Node* node = new Node({0.0f, 0.0f, 0.0f});
+    node->texsquare = new TexSquare("res/textures/cat-bg.png", {0.0f, 0.0f, 0.0f}, COLOR_BLACK, {0.1f, 0.1f});
 
-    TexSquare* cat{ nullptr };
-    cat = new TexSquare("res/textures/cat-bg.png", {0.0f, 0.0f, 0.0f}, COLOR_BLACK, {0.1f, 0.1f});
-    cat->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
-    cat->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
+    node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
+    node->texsquare->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -28,34 +26,33 @@ int main() {
             yume::toggleFullscreen();
         }
         
-        handle_movement(cat, 0.005f);
+        handle_movement(node->texsquare, 0.005f);
 
 		yume::updateInput(yume::getWindowPointer());
         yume::setWindowBackgroundColor(COLOR_PURPLE);
         
-        cat->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
-        cat->simpleRender();
+        node->texsquare->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
+        node->texsquare->simpleRender();
 
         yume::swapBuffersPollEvents();
     }
 
-	delete cat;
-
+    delete node;
     yume::closeWindow();
 }
 
-void handle_movement(TexSquare* cat, float speed) {
+void handle_movement(TexSquare* obj, float speed) {
     if (yume::keyDown(KEY_W)) {
-        cat->position += glm::vec3(0.0f, speed, 0.0f);
+        obj->position += glm::vec3(0.0f, speed, 0.0f);
     }
     else if (yume::keyDown(KEY_S)) {
-        cat->position += glm::vec3(0.0f, -speed, 0.0f);
+        obj->position += glm::vec3(0.0f, -speed, 0.0f);
     }
 
     if (yume::keyDown(KEY_A)) {
-        cat->position += glm::vec3(-speed, 0.0f, 0.0f);
+        obj->position += glm::vec3(-speed, 0.0f, 0.0f);
     }
     else if (yume::keyDown(KEY_D)) {
-        cat->position += glm::vec3(speed, 0.0f, 0.0f);
+        obj->position += glm::vec3(speed, 0.0f, 0.0f);
     }
 }
