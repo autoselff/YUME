@@ -57,6 +57,12 @@ add_executable(${PROJECT_NAME}
 
     src/engine/core/assistant.h
     src/engine/core/assistant.cpp
+
+    src/engine/node/node.h
+    src/engine/node/node.cpp
+
+    src/engine/node_packages/node_pcg.h
+    src/engine/node_packages/node_pcg.cpp
 )
 
 if(UNIX AND NOT APPLE)

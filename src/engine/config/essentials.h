@@ -8,3 +8,4 @@
 #include "../engine/renderer/triangle.h"
 #include "../engine/renderer/texsquare.h"
 #include "../engine/renderer/colors.h"
+#include "../engine/node/node.h"

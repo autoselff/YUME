@@ -8,6 +8,9 @@ int main() {
     yume::initWindow("YUME");
     yume::runAssistant();
 
+    Node* my_node{ nullptr };
+    my_node = new Node({});
+
     TexSquare* cat{ nullptr };
     cat = new TexSquare("res/textures/cat-bg.png", {0.0f, 0.0f, 0.0f}, COLOR_BLACK, {0.1f, 0.1f});
     cat->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
@@ -24,7 +27,7 @@ int main() {
         if (yume::keyPressed(KEY_F)) {
             yume::toggleFullscreen();
         }
-
+        
         handle_movement(cat, 0.005f);
 
 		yume::updateInput(yume::getWindowPointer());
