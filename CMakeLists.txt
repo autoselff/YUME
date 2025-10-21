@@ -71,11 +71,11 @@ endif()
 target_include_directories(${PROJECT_NAME} PRIVATE src/deps)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/build/$<CONFIG>"
-    RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/out/build/debug"
-    RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/out/build/release"
-    RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/out/build/minsizerel"
-    RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/out/build/relwithdebinfo"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/$<CONFIG>"
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/out/debug"
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/out/release"
+    RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/out/minsizerel"
+    RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/out/relwithdebinfo"
 )
 
 set(RES_SOURCE_DIR "${CMAKE_SOURCE_DIR}/res")
@@ -86,5 +86,5 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${RES_SOURCE_DIR}"
         "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res"
-    COMMENT "Kopiowanie folderu 'res' z zasobami do katalogu binarnych..."
+    COMMENT "[!] 'res' directory copied to output directory."
 )

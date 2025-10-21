@@ -1,6 +1,5 @@
 ﻿#include "engine/config/config.h"
 #include "engine/config/essentials.h"
-#include "engine/node/node.h"
 
 void handle_movement(Node* node, float speed);
 
@@ -9,8 +8,6 @@ int main() {
     yume::runAssistant();
 
     Node* node = new Node({0.0f, 0.0f, 0.0f}, "res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
-    // Node* node = new Node({0.0f,0.0f,0.0f});
-    // node->initTexSquare("res/textures/cat-bg.png", COLOR_BLACK, {0.1f,0.1f});
 
     node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
     node->texsquare->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
