@@ -1,7 +1,7 @@
 import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-proj_dir = os.path.abspath(os.path.join(current_dir, '../../../../../../'))
+proj_dir = os.path.abspath(os.path.join(current_dir, '../../../../../'))
 
 def count_project_lines(path):
     INCLUDED_FORMATS = ('.txt', '.cpp', '.h', '.py')
