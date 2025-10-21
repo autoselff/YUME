@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.28)
+﻿cmake_minimum_required(VERSION 3.22)
 project(YUME VERSION 0.0.2)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -60,9 +60,6 @@ add_executable(${PROJECT_NAME}
 
     src/engine/node/node.h
     src/engine/node/node.cpp
-
-    src/engine/node_packages/node_pcg.h
-    src/engine/node_packages/node_pcg.cpp
 )
 
 if(UNIX AND NOT APPLE)

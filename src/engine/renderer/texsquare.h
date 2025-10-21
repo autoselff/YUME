@@ -2,18 +2,19 @@
 
 #include "../config/config.h"
 #include "../gl_program/gl_program.h"
-#include "../node_packages/node_pcg.h"
 #include "../core/window.h"
+
+class Node;
 
 class TexSquare {
 public:
-    glm::vec3 position{ 0.0f };
     glm::vec3 color{ 0.0f };
     glm::vec2 size{ 1.0f };
 
+    Node* owner{ nullptr };
     GlProgram shader;
 
-    TexSquare(const std::string& path, const glm::vec3& position, const glm::vec3& color, const glm::vec2& size);
+    TexSquare(Node* owner, const std::string& path, const glm::vec3& color, const glm::vec2& size);
     ~TexSquare();
 
     void updateVertices();

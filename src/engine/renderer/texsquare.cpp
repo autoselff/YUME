@@ -1,8 +1,11 @@
 #include "texsquare.h"
+#include "../node/node.h"
 
-TexSquare::TexSquare(const std::string& path, const glm::vec3& position, const glm::vec3& color, const glm::vec2& size)
-    : position(position), prevPosition(position), color(color), size(size)
+TexSquare::TexSquare(Node* owner, const std::string& path, const glm::vec3& color, const glm::vec2& size)
+    : owner(owner), color(color), size(size)
 {
+    if (owner) prevPosition = owner->position;
+
     loadTexture(path);
     initBuffers();
     updateVertices();
@@ -54,26 +57,28 @@ void TexSquare::initBuffers() {
 }
 
 void TexSquare::updateVertices() {
+    glm::vec3 pos = owner ? owner->position : glm::vec3(0.0f);
+
     vertices = {
         // top-right
-        position.x + size.x * yume::getGlobalScale().x, 
-        position.y + size.y * yume::getGlobalScale().y, 
-        position.z, color.r, color.g, color.b, 1.0f, 1.0f,
+        pos.x + size.x * yume::getGlobalScale().x, 
+        pos.y + size.y * yume::getGlobalScale().y, 
+        pos.z, color.r, color.g, color.b, 1.0f, 1.0f,
 
         // bottom-right
-        position.x + size.x * yume::getGlobalScale().x, 
-        position.y - size.y * yume::getGlobalScale().y, 
-        position.z, color.r, color.g, color.b, 1.0f, 0.0f,
+        pos.x + size.x * yume::getGlobalScale().x, 
+        pos.y - size.y * yume::getGlobalScale().y, 
+        pos.z, color.r, color.g, color.b, 1.0f, 0.0f,
 
         // bottom-left
-        position.x - size.x * yume::getGlobalScale().x, 
-        position.y - size.y * yume::getGlobalScale().y, 
-        position.z, color.r, color.g, color.b, 0.0f, 0.0f,
+        pos.x - size.x * yume::getGlobalScale().x, 
+        pos.y - size.y * yume::getGlobalScale().y, 
+        pos.z, color.r, color.g, color.b, 0.0f, 0.0f,
 
         // top-left
-        position.x - size.x * yume::getGlobalScale().x, 
-        position.y + size.y * yume::getGlobalScale().y, 
-        position.z, color.r, color.g, color.b, 0.0f, 1.0f
+        pos.x - size.x * yume::getGlobalScale().x, 
+        pos.y + size.y * yume::getGlobalScale().y, 
+        pos.z, color.r, color.g, color.b, 0.0f, 1.0f
     };
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -100,10 +105,11 @@ void TexSquare::simpleRender() {
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-    if (prevPosition != position) {
+    glm::vec3 curPos = owner ? owner->position : glm::vec3(0.0f);
+    if (prevPosition != curPos) {
         updateVertices();
         refresh();
-        prevPosition = position;
+        prevPosition = curPos;
     }
 }
 
@@ -118,10 +124,11 @@ void TexSquare::renderWithShader(const GlProgram& otherShader) const {
 }
 
 void TexSquare::rotate(const glm::vec3& axis, float rotationSpeed) const {
+    glm::vec3 pos = owner ? owner->position : glm::vec3(0.0f);
     glm::mat4 transform(1.0f);
-    transform = glm::translate(transform, position);
+    transform = glm::translate(transform, pos);
     transform = glm::rotate(transform, -rotationSpeed * (float)glfwGetTime(), axis);
-    transform = glm::translate(transform, -position);
+    transform = glm::translate(transform, -pos);
 
     shader.use();
     shader.setMat4("transform", transform);
