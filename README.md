@@ -28,3 +28,11 @@ YUME<br>
 ├── res<br>
 ├── glm<br>
 └── glfw<br>
+
+### TODO
+1. Renderer
+2. Render Layers
+3. Project/LibImport System
+4. 2D Collider Component
+5. 2D Collisions
+6. 2D Camera
