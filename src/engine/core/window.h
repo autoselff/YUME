@@ -2,9 +2,13 @@
 
 #include "../config/config.h"
 
+class Renderer;
+
 void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 
 namespace yume {
+
+    extern Renderer renderer;
 
     void setWindowSize(unsigned int width, unsigned int height);
 

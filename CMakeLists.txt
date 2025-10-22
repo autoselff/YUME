@@ -55,6 +55,9 @@ add_executable(${PROJECT_NAME}
     src/engine/renderer/texsquare.h
     src/engine/renderer/texsquare.cpp
 
+    src/engine/renderer/renderer.h
+    src/engine/renderer/renderer.cpp
+
     src/engine/core/assistant.h
     src/engine/core/assistant.cpp
 

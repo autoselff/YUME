@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include "../config/config.h"
 #include "../renderer/texsquare.h"
 

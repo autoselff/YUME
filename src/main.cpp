@@ -7,10 +7,16 @@ int main() {
     yume::initWindow("YUME");
     yume::runAssistant();
 
-    Node* node = new Node({0.0f, 0.0f, 0.0f}, "res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
+    auto node = std::make_unique<Node>(glm::vec3{0.0f,0.0f,0.0f});
+    node->initTexSquare("res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
 
-    node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
-    node->texsquare->setRotation({ 0.0f, 0.0f, 1.0f}, 90.0f);
+
+    if (node->texsquare) {
+        node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
+        node->texsquare->setRotation({0.0f, 0.0f, 1.0f}, 90.0f);
+
+        yume::renderer.addToRender(node->texsquare.get());
+    }
 
     glEnable(GL_DEPTH_TEST);
 
@@ -24,20 +30,21 @@ int main() {
             yume::toggleFullscreen();
         }
         
-        handle_movement(node, 0.005f);
+        handle_movement(node.get(), 0.005f);
 
         yume::updateInput(yume::getWindowPointer());
         yume::setWindowBackgroundColor(COLOR_PURPLE);
         
         if (node->texsquare) {
             node->texsquare->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
-            node->texsquare->simpleRender();
         }
+
+        yume::renderer.renderAll();
 
         yume::swapBuffersPollEvents();
     }
 
-    delete node;
+    node.reset();
     yume::closeWindow();
 }
 

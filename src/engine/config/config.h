@@ -19,6 +19,7 @@
 #include <chrono>
 #include <thread>
 #include <cstdlib>
+#include <memory>
 #include <map>
 
 #ifdef _WIN32
