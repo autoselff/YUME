@@ -63,6 +63,12 @@ add_executable(${PROJECT_NAME}
 
     src/engine/node/node.h
     src/engine/node/node.cpp
+
+    src/engine/project/project.h
+    src/engine/project/project.cpp
+
+    src/engine/project/scene.h
+    src/engine/project/scene.cpp
 )
 
 if(UNIX AND NOT APPLE)
