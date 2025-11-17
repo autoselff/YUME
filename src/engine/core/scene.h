@@ -10,7 +10,7 @@ public:
     Scene();
     ~Scene();
 
-    virtual void Start();
-    virtual void Update();
-    virtual void End();
+    virtual void start();
+    virtual void update();
+    virtual void end();
 };

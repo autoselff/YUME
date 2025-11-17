@@ -27,6 +27,7 @@ add_executable(${PROJECT_NAME}
 
     #engine
     src/main.cpp
+    src/main.h
 
     src/engine/core/window.h
     src/engine/core/window.cpp
@@ -64,11 +65,8 @@ add_executable(${PROJECT_NAME}
     src/engine/node/node.h
     src/engine/node/node.cpp
 
-    src/engine/project/project.h
-    src/engine/project/project.cpp
-
-    src/engine/project/scene.h
-    src/engine/project/scene.cpp
+    src/engine/core/scene.h
+    src/engine/core/scene.cpp
 )
 
 if(UNIX AND NOT APPLE)

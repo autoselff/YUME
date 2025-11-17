@@ -10,5 +10,4 @@
 #include "../engine/renderer/renderer.h"
 #include "../engine/renderer/colors.h"
 #include "../engine/node/node.h"
-#include "../engine/project/project.h"
-#include "../engine/project/scene.h"
+#include "../engine/core/scene.h"

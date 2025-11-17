@@ -1,8 +1,7 @@
 #include "window.h"
-#include "../renderer/renderer.h"
-#include <iostream>
+#include "scene.h"
 
-Renderer yume::renderer;
+Scene yume::currentScene;
 
 namespace yume {
     unsigned int WINDOW_WIDTH{ 800 };

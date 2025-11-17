@@ -15,7 +15,7 @@ int main() {
         node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
         node->texsquare->setRotation({0.0f, 0.0f, 1.0f}, 90.0f);
 
-        yume::renderer.addToRender(node->texsquare.get());
+        yume::currentScene.renderer.addToRender(node->texsquare.get());
     }
 
     glEnable(GL_DEPTH_TEST);
@@ -39,7 +39,7 @@ int main() {
             node->texsquare->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
         }
 
-        yume::renderer.renderAll();
+        yume::currentScene.renderer.renderAll();
 
         yume::swapBuffersPollEvents();
     }
