@@ -64,6 +64,8 @@ namespace yume {
         }
 
         glfwSwapInterval(1);
+        glEnable(GL_DEPTH_TEST);
+        
         std::cout << std::endl << std::flush;
     }
 

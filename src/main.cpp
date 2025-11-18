@@ -10,15 +10,12 @@ int main() {
     auto node = std::make_unique<Node>(glm::vec3{0.0f,0.0f,0.0f});
     node->initTexSquare("res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
 
-
     if (node->texsquare) {
         node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
         node->texsquare->setRotation({0.0f, 0.0f, 1.0f}, 90.0f);
 
         yume::currentScene.renderer.addToRender(node->texsquare.get());
     }
-
-    glEnable(GL_DEPTH_TEST);
 
     while(yume::isWindowOpen()) {
         yume::updateWindow();
