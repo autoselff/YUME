@@ -27,7 +27,6 @@ add_executable(${PROJECT_NAME}
 
     #engine
     src/main.cpp
-    src/main.h
 
     src/engine/core/window.h
     src/engine/core/window.cpp
