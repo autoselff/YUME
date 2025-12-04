@@ -1,4 +1,7 @@
 CMakeLists.txt
-src/main.cpp
+
+main.cpp
+
 res
+
 YUME
