@@ -19,7 +19,7 @@ The latest version of YUME is **0.0.2**, which introduces:
 
 ---
 
-### Lib Structure
+### Project Structure
 YUME<br>
 ├── src<br>
 │   ├── main.cpp<br>
