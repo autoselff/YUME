@@ -28,6 +28,5 @@ YUME<br>
 ├── res<br>
 ├── glm<br>
 └── glfw<br>
-4. 2D Collider Component
 5. 2D Collisions
 6. 2D Camera
