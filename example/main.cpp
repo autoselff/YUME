@@ -1,4 +1,4 @@
-﻿#include "engine/config/config.h"
+#include "engine/config/config.h"
 #include "engine/config/essentials.h"
 
 void handle_movement(Node* node, float speed);

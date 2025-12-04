@@ -133,10 +133,12 @@ namespace yume {
     }
 
     void closeWindow() {
-        std::cout << "\nclosing....\n\n";
+    std::cout << "\nclosing...." << std::endl;
 
-        glfwDestroyWindow(_window);
-        glfwTerminate();
-    }
+    currentScene.end();
+
+    glfwDestroyWindow(_window);
+    glfwTerminate();
+}
 }
 

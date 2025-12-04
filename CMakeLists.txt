@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required(VERSION 3.22)
-project(YUME VERSION 0.0.2)
+project(YUME VERSION 0.0.3)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -18,16 +18,17 @@ elseif(UNIX AND NOT APPLE)
     add_subdirectory(glm)
 endif()
 
-add_executable(${PROJECT_NAME}
+# ============================================================
+# YUME LIBRARY
+# ============================================================
+add_library(YUME_LIB STATIC
     # dependencies
     src/deps/glad/glad.c
     src/deps/glad/glad.h
     src/deps/stb/stb.cpp
     src/deps/stb/stb_image.h
 
-    #engine
-    src/main.cpp
-
+    # YUME framework
     src/engine/core/window.h
     src/engine/core/window.cpp
 
@@ -69,12 +70,27 @@ add_executable(${PROJECT_NAME}
 )
 
 if(UNIX AND NOT APPLE)
-    target_link_libraries(${PROJECT_NAME} PRIVATE glfw glm OpenGL::GL)
+    target_link_libraries(YUME_LIB PUBLIC glfw glm OpenGL::GL)
 else()
-    target_link_libraries(${PROJECT_NAME} PRIVATE glfw glm)
+    target_link_libraries(YUME_LIB PUBLIC glfw glm)
 endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE src/deps)
+target_include_directories(YUME_LIB 
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/deps>
+    PRIVATE 
+)
+
+# ============================================================
+# EXAMPLE PROGRAM
+# ============================================================
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE YUME_LIB)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/$<CONFIG>"
@@ -94,3 +110,17 @@ add_custom_command(
         "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res"
     COMMENT "[!] 'res' directory copied to output directory."
 )
+
+# ============================================================
+# OPTIONAL: Library installation
+# ============================================================
+# Uncomment if you want to install the library system-wide
+# install(TARGETS YUME_LIB
+#     LIBRARY DESTINATION lib
+#     ARCHIVE DESTINATION lib
+# )
+# 
+# install(DIRECTORY src/engine 
+#     DESTINATION include/yume
+#     FILES_MATCHING PATTERN "*.h"
+# )

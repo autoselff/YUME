@@ -10,3 +10,8 @@ deps
 # API's
 glm
 glfw
+
+# example
+/example/YUME/src
+/example/YUME/.gitignore
+/example/YUME/CMakeLists.txt
