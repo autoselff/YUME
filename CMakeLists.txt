@@ -110,17 +110,3 @@ add_custom_command(
         "$<TARGET_FILE_DIR:${PROJECT_NAME}>/res"
     COMMENT "[!] 'res' directory copied to output directory."
 )
-
-# ============================================================
-# OPTIONAL: Library installation
-# ============================================================
-# Uncomment if you want to install the library system-wide
-# install(TARGETS YUME_LIB
-#     LIBRARY DESTINATION lib
-#     ARCHIVE DESTINATION lib
-# )
-# 
-# install(DIRECTORY src/engine 
-#     DESTINATION include/yume
-#     FILES_MATCHING PATTERN "*.h"
-# )
