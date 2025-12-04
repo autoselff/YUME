@@ -19,7 +19,7 @@ The latest version of YUME is **0.0.2**, which introduces:
 
 ---
 
-### Project Structure
+### Lib Structure
 YUME<br>
 ├── src<br>
 │   ├── main.cpp<br>
@@ -28,11 +28,6 @@ YUME<br>
 ├── res<br>
 ├── glm<br>
 └── glfw<br>
-
-### TODO
-1. Renderer
-2. Render Layers
-3. Project/LibImport System
 4. 2D Collider Component
 5. 2D Collisions
 6. 2D Camera
