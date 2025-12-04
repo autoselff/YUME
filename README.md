@@ -28,5 +28,3 @@ YUME<br>
 ├── res<br>
 ├── glm<br>
 └── glfw<br>
-5. 2D Collisions
-6. 2D Camera
