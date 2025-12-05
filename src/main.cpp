@@ -5,7 +5,6 @@ void handle_movement(Node* node, float speed);
 
 int main() {
     yume::initWindow("YUME");
-    yume::runAssistant();
 
     auto node = std::make_unique<Node>(glm::vec3{0.0f,0.0f,0.0f});
     node->initTexSquare("res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
@@ -35,10 +34,6 @@ int main() {
         if (node->texsquare) {
             node->texsquare->rotate({ 0.0f, 1.0f, 0.0f }, 2.6f);
         }
-
-        yume::currentScene.renderer.renderAll();
-
-        yume::swapBuffersPollEvents();
     }
 
     node.reset();
