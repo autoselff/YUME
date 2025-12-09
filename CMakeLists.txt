@@ -23,10 +23,10 @@ endif()
 # ============================================================
 add_library(YUME_LIB STATIC
     # dependencies
-    src/deps/glad/glad.c
-    src/deps/glad/glad.h
-    src/deps/stb/stb.cpp
-    src/deps/stb/stb_image.h
+    deps/glad/glad.c
+    deps/glad/glad.h
+    deps/stb/stb.cpp
+    deps/stb/stb_image.h
 
     # YUME framework
     src/engine/core/window.h
@@ -76,7 +76,7 @@ target_include_directories(YUME_LIB
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
         $<INSTALL_INTERFACE:include>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/deps>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/deps>
     PRIVATE 
 )
 
