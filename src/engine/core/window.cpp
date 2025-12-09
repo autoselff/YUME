@@ -1,7 +1,7 @@
 #include "window.h"
-#include "scene.h"
+#include "../renderer/renderer.h"
 
-Scene yume::currentScene;
+Renderer yume::currentRenderer;
 
 namespace yume {
     unsigned int WINDOW_WIDTH{ 800 };
@@ -83,7 +83,7 @@ namespace yume {
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         // render current scene
-        yume::currentScene.renderer.renderAll();
+        yume::currentRenderer.renderAll();
 
         // swap buffers poll events
         glfwSwapBuffers(_window);
@@ -141,9 +141,6 @@ namespace yume {
 
     void closeWindow() {
     std::cout << "\nclosing...." << std::endl;
-
-    currentScene.end();
-
     glfwDestroyWindow(_window);
     glfwTerminate();
 }

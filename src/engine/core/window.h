@@ -2,12 +2,12 @@
 
 #include "../config/config.h"
 
-class Scene;
+class Renderer;
 
 void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 
 namespace yume {
-    extern Scene currentScene;
+    extern Renderer currentRenderer;
 
     void setWindowSize(unsigned int width, unsigned int height);
 

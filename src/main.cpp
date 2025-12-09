@@ -12,8 +12,7 @@ int main() {
     if (node->texsquare) {
         node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
         node->texsquare->setRotation({0.0f, 0.0f, 1.0f}, 90.0f);
-
-        yume::currentScene.renderer.addToRender(node->texsquare.get());
+        yume::currentRenderer.addToRender(node->texsquare.get());
     }
 
     while(yume::isWindowOpen()) {
@@ -49,7 +48,6 @@ void handle_movement(Node* node, float speed) {
     else if (yume::keyDown(KEY_DOWN)) {
         node->position += glm::vec3(0.0f, -speed, 0.0f);
     }
-
     if (yume::keyDown(KEY_LEFT)) {
         node->position += glm::vec3(-speed, 0.0f, 0.0f);
     }

@@ -64,9 +64,6 @@ add_library(YUME_LIB STATIC
 
     src/engine/node/node.h
     src/engine/node/node.cpp
-
-    src/engine/core/scene.h
-    src/engine/core/scene.cpp
 )
 
 if(UNIX AND NOT APPLE)
