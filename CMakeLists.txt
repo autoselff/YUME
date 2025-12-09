@@ -7,20 +7,20 @@ if(WIN32)
     add_subdirectory(glfw)
     add_subdirectory(glm)
 
+# ===========================================================================
+#                           INSTALATION (LINUX)                         
+#                     sudo apt-get install libglm-dev
+#                 sudo apt-get install libglfw3 libglfw3-dev
+# ===========================================================================
 elseif(UNIX AND NOT APPLE)
-    # sudo apt-get install libglm-dev
-    # sudo apt-get install libglfw3 libglfw3-dev
-
     cmake_policy(SET CMP0072 NEW)
-
     find_package(OpenGL REQUIRED)
-
     add_subdirectory(glm)
 endif()
 
-# ============================================================
-# YUME LIBRARY
-# ============================================================
+# ===========================================================================
+#                                  YUME                                    
+# ===========================================================================
 add_library(YUME_LIB STATIC
     # dependencies
     deps/glad/glad.c
@@ -80,9 +80,9 @@ target_include_directories(YUME_LIB
     PRIVATE 
 )
 
-# ============================================================
-# EXAMPLE PROGRAM
-# ============================================================
+# ===========================================================================
+#                             EXAMPLE PROGRAM                                    
+# ===========================================================================
 add_executable(${PROJECT_NAME}
     src/main.cpp
 )
