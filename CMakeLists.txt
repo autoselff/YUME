@@ -8,9 +8,9 @@ if(WIN32)
     add_subdirectory(glm)
 
 # ===========================================================================
-#                           INSTALATION (LINUX)                         
-#                     sudo apt-get install libglm-dev
-#                 sudo apt-get install libglfw3 libglfw3-dev
+#                             INSTALATION (LINUX)                         
+#                      sudo apt-get install libglm-dev
+#                  sudo apt-get install libglfw3 libglfw3-dev
 # ===========================================================================
 elseif(UNIX AND NOT APPLE)
     cmake_policy(SET CMP0072 NEW)
@@ -19,7 +19,7 @@ elseif(UNIX AND NOT APPLE)
 endif()
 
 # ===========================================================================
-#                                  YUME                                    
+#                                   YUME                                    
 # ===========================================================================
 add_library(YUME_LIB STATIC
     # dependencies
@@ -81,7 +81,7 @@ target_include_directories(YUME_LIB
 )
 
 # ===========================================================================
-#                             EXAMPLE PROGRAM                                    
+#                              EXAMPLE PROGRAM                                    
 # ===========================================================================
 add_executable(${PROJECT_NAME}
     src/main.cpp
