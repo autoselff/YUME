@@ -4,7 +4,6 @@ YUME is an open-source, multiplatform framework for creating 2D games with 3D ef
 ---
 
 ### Resources
-- **Website**: [YUME Website](https://autoselff.com/games/yume.html)
 - **Packages (GLM, GLFW, STB, GLAD...)**: [Download Packages](https://github.com/autoselff/autoselff/releases/download/v0.9.2/YUME-packages.zip)
 
 ---
