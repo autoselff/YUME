@@ -1,9 +1,6 @@
 ﻿#include "engine/config/config.h"
 #include "engine/config/essentials.h"
 
-// Forward declaration of the node movement handling function
-void handle_movement(Node* node, float speed);
-
 /**
  * @brief Main application function for YUME engine
  * 
@@ -50,14 +47,14 @@ int main() {
             yume::toggleFullscreen();
         }
         
-        // Handle object movement using arrow keys
-        handle_movement(node.get(), 0.005f);
-
         // Update input state (keyboard, mouse)
         yume::updateInput(yume::getWindowPointer());
         
         // Set background color to purple
         yume::setWindowBackgroundColor(COLOR_PURPLE);
+
+        // Handle node physics
+        node->position += glm::vec3(0.0f, -1.0f, 0.0f) * yume::getDeltaTime();
         
         // Animation - continuous rotation of object around Y axis
         if (node->texsquare) {
@@ -70,39 +67,4 @@ int main() {
     
     // Close window and release engine resources
     yume::closeWindow();
-}
-
-/**
- * @brief Handles node movement based on pressed arrow keys
- * 
- * This function checks the state of directional keys and modifies
- * the node's position in 2D space (X and Y axes) accordingly. Movement
- * speed is controlled by the speed parameter.
- * 
- * @param node Pointer to the node whose position will be modified
- * @param speed Movement speed (units per frame)
- * 
- * @note Uses keyDown() for continuous movement while key is held
- * @note The if-else structure for opposite directions prevents simultaneous
- *       movement in opposite directions on the same axis
- */
-void handle_movement(Node* node, float speed) {
-    // Pointer validation - protection against nullptr
-    if (!node) return;
-
-    // Vertical movement - up/down (Y axis)
-    if (yume::keyDown(KEY_UP)) {
-        node->position += glm::vec3(0.0f, speed, 0.0f);
-    }
-    else if (yume::keyDown(KEY_DOWN)) {
-        node->position += glm::vec3(0.0f, -speed, 0.0f);
-    }
-    
-    // Horizontal movement - left/right (X axis)
-    if (yume::keyDown(KEY_LEFT)) {
-        node->position += glm::vec3(-speed, 0.0f, 0.0f);
-    }
-    else if (yume::keyDown(KEY_RIGHT)) {
-        node->position += glm::vec3(speed, 0.0f, 0.0f);
-    }
 }

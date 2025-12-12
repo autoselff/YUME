@@ -72,6 +72,10 @@ namespace yume {
     void updateWindow() {
         // delta time
         auto current_frame = static_cast<float>(glfwGetTime());
+        if (last_frame == 0.0f) {
+            last_frame = current_frame;
+        }
+        
         delta_time = current_frame - last_frame;
         last_frame = current_frame;
 
