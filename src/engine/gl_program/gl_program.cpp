@@ -17,14 +17,14 @@ GlProgram::GlProgram(Shader* vertexShader, Shader* fragmentShader) : id(glCreate
     linkProgram();
 }
 
-// FUNCTIONS
-
-/// <summary>
-///To be used on a compleately untouched GlProgram created with the parameterless constuctor.
-///Reads shader code from files, compiles it, REPLACES(NOT DELETEs) shader pointers with new objects, 
-///attaches shaders to the program, links program, deletes pointers, that is shader objects.
-///Mainly for simple useage.
-/// </summary>
+/**
+ * @brief To be used on a compleately untouched GlProgram created with the parameterless constuctor.
+ * Reads shader code from files, compiles it, REPLACES(NOT DELETEs) shader pointers with new objects, 
+ * attaches shaders to the program, links program, deletes pointers, that is shader objects.
+ * Mainly for simple useage.
+ * @param vertexPath Path to the vertex shader
+ * @param fragmentPath Path to the fragment shader
+ */
 void GlProgram::makeProgramFromPaths(const std::string& vertexPath, const std::string& fragmentPath) {
     Shader vertexShader = generateShaderPath(GL_VERTEX_SHADER, vertexPath);
     Shader fragmentShader = generateShaderPath(GL_FRAGMENT_SHADER, fragmentPath);
