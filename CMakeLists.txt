@@ -47,6 +47,9 @@ add_library(YUME_LIB STATIC
 
     src/engine/renderer/colors.h
 
+    src/engine/renderer/square.h
+    src/engine/renderer/square.cpp
+
     src/engine/renderer/triangle.h
     src/engine/renderer/triangle.cpp
 
