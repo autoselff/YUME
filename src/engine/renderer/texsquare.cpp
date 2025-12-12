@@ -59,6 +59,11 @@ void TexSquare::initBuffers() {
 void TexSquare::updateVertices() {
     glm::vec3 pos = owner ? owner->position : glm::vec3(0.0f);
 
+    float normalizedX = pos.x / yume::WINDOW_WIDTH;
+    float normalizedY = pos.y / yume::WINDOW_HEIGHT;
+
+    pos = {normalizedX, normalizedY, pos.z};
+
     vertices = {
         // top-right
         pos.x + size.x * yume::getGlobalScale().x, 

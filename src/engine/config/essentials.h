@@ -4,7 +4,6 @@
 #include "../input/input.h"
 #include "../core/assistant.h"
 #include "../gl_program/gl_program.h"
-#include "../renderer/square.h"
 #include "../renderer/triangle.h"
 #include "../renderer/texsquare.h"
 #include "../renderer/renderer.h"

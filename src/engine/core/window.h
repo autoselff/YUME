@@ -9,6 +9,9 @@ void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 namespace yume {
     extern Renderer currentRenderer;
 
+    extern unsigned int WINDOW_WIDTH;
+    extern unsigned int WINDOW_HEIGHT;
+
     void setWindowSize(unsigned int width, unsigned int height);
 
     void initWindow(const std::string& title);

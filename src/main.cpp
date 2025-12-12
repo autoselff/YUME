@@ -16,6 +16,7 @@ int main() {
 
     // Create a smart pointer to a scene node at initial position (0,0,0)
     auto node = std::make_unique<Node>(glm::vec3{0.0f, 0.0f, 0.0f});
+    glm::vec3 velocity{ 0.0f };
     
     // Initialize textured square with cat texture and 0.1 x 0.1 scale
     node->initTexSquare("res/textures/cat-bg.png", COLOR_BLACK, {0.1f, 0.1f});
@@ -53,8 +54,16 @@ int main() {
         // Set background color to purple
         yume::setWindowBackgroundColor(COLOR_PURPLE);
 
-        // Handle node physics
-        node->position += glm::vec3(0.0f, -1.0f, 0.0f) * yume::getDeltaTime();
+        // Handle prototype physics of the node
+        node->position += velocity * yume::getDeltaTime();
+        velocity += glm::vec3(0.0f, -9.81 * 30.0f, 0.0f) * yume::getDeltaTime();
+
+        if (node->position.y < -500 || node->position.y > yume::WINDOW_HEIGHT) {
+            velocity.y *= -0.95f;
+        }
+        if (node->position.x < -500 || node->position.x > yume::WINDOW_WIDTH) {
+            velocity.x *= -0.95f;
+        }
         
         // Animation - continuous rotation of object around Y axis
         if (node->texsquare) {
