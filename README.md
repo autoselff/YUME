@@ -1,5 +1,5 @@
 # YUME
-YUME is an open-source, multiplatform framework for creating 2D games with 3D efects, written from scratch in C++ using OpenGL. The goal of the project is to explore graphic programming and create an excellent tool for people who value simplicity and creating unique computer games.<br>
+YUME is a cross-platform framework that simplifies the creation of simple 2D games with 3D effects using C++. The goal of the project is to explore graphic programming and create an excellent tool for people who value simplicity and the tools they use.<br>
 
 ---
 # Docs
