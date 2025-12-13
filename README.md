@@ -7,7 +7,7 @@ YUME is a cross-platform framework that simplifies the creation of simple 2D gam
 ## Setup
 To start working with YUME, you need to copy the repository to your chosen location. For the purposes of this documentation, let's assume it will be a folder named YUME. Once this is done, you need to download the dependencies required for the framework to work properly: glfw, glm, and deps. Everything is available for download at the link below, which will automatically start the installation of compressed dependencies after clicking. Once they are downloaded, you need to unpack them and place them in the YUME project folder so that everything looks like the diagram below.<br>
 
-**Packages (GLFW, GLM, DEPS (GLAD, STB, KHR))**: [Download Packages](https://github.com/autoselff/autoselff/releases/download/v0.9.2/YUME-packages.zip)
+**Dependencies (GLFW, GLM, DEPS (GLAD, STB, KHR))**: [Download Dependencies](https://github.com/autoselff/YUME/releases/download/v0.1.0/dependencies.zip)
 
 YUME<br>
 ├── CMakeLists.txt<br>
