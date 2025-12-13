@@ -25,7 +25,6 @@ Once the setup has been successfully completed, you can start creating your firs
 
 src<br>
 ├── main.cpp<br>
-├── game_scene.cpp<br>
 ├── scenes<br>
 │   ├── game_scene.cpp<br>
 │   ├── game_scene.h<br>
