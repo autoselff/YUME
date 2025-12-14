@@ -29,7 +29,7 @@ int main() {
         // Set initial rotation of 90 degrees around Z axis
         node->texsquare->setRotation({0.0f, 0.0f, 0.0f}, 0.0f);
         
-        // Register object in the rendering system
+        // Register object in the rendering system 
         yume::currentRenderer.addToRender(node->texsquare.get());
     }
 
