@@ -26,7 +26,7 @@ int main() {
         // Compile and link vertex and fragment shaders
         node->texsquare->shader.makeProgramFromPaths("res/shaders/vertex.glsl", "res/shaders/fragment.glsl");
         
-        // Set initial rotation of 90 degrees around Z axis
+        // Set initial rotation
         node->texsquare->setRotation({0.0f, 0.0f, 0.0f}, 0.0f);
         
         // Register object in the rendering system 
