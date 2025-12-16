@@ -5,8 +5,7 @@
  * @brief Main application function for YUME engine
  * 
  * @details Initializes the engine window, creates a node with a textured square,
- * configures shaders and rendering, then runs the main game loop
- * with keyboard input handling and object rotation animation.
+ * configures shaders and rendering.
  * 
  * @return int Application exit code (0 on successful termination)
  */
